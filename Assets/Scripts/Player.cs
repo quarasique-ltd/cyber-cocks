@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using JetBrains.Annotations;
+using UnityEngine;
+using UnityEngine.Experimental.XR.Interaction;
 
 public class Player : MonoBehaviour
 {
@@ -7,8 +10,12 @@ public class Player : MonoBehaviour
 	private Rigidbody2D _mybody;
 	private Collider2D _collider2D;
 	private PlayerController _playerController;
-
+	
+	private float _lastStunTime;
+	
 	public Gun Gun;
+	public float StunTimeSeconds = 1;
+	
 
 	private void Start()
 	{
@@ -39,14 +46,33 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public void Move(float x = 0, float y = 0)
+	private bool IsStunned()
 	{
-		var direction = new Vector3(x, y);
-		_mybody.transform.position = _mybody.transform.position + direction;
+		return GetTimeInSeconds() - _lastStunTime < StunTimeSeconds;
 	}
 
-	public void Shoot(Vector2 direction)
+	public void Move(Vector2 direction)
 	{
-		Gun.Shoot(direction);
+		if (IsStunned())
+		{
+			return;
+		}
+		_mybody.transform.position = _mybody.transform.position + (Vector3) direction;
+	}
+
+	public void Shoot(Vector3 direction)
+	{
+		Gun.Shoot((direction - transform.position).normalized);
+	}
+
+	private static long GetTimeInSeconds()
+	{
+		return DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond / 1000;
+	}
+
+	public void Stun(Vector3 direction)
+	{
+		_lastStunTime = GetTimeInSeconds();
+		Move(direction);
 	}
 }

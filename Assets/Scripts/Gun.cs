@@ -3,13 +3,14 @@
 public class Gun : MonoBehaviour
 {
 	public Bullet Bullet;
+	public float Power = 5;
 
-	public void Shoot(Vector2 direction)
+	public void Shoot(Vector3 velocity)
 	{
-		Bullet.transform.position = transform.position;
+		Bullet.transform.position = transform.position + velocity;
 		var bulletScript = Bullet.GetComponent<Bullet>();
-		bulletScript.FlyingForce = direction.normalized;
-		bulletScript.PushingForce = direction.normalized;
+		bulletScript.FlyingVelocity = velocity * Power;
+		bulletScript.PushingForce = velocity * Power;
 		Instantiate(Bullet);
 	}
 }
