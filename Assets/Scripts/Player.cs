@@ -1,39 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 	private Rigidbody2D _rigidbody2D;
-	private Animator animator;
-	private Rigidbody2D mybody;
+	private Animator _animator;
+	private Rigidbody2D _mybody;
 	private Collider2D _collider2D;
-	private IPlayerController _playerController;
-	void Start ()
+	private PlayerController _playerController;
+
+	public Gun Gun;
+
+	private void Start()
 	{
-		_playerController = new PlayerController();
-		animator = GetComponent<Animator> ();
-		mybody = GetComponent<Rigidbody2D>();
+		_playerController = gameObject.AddComponent<PlayerController>();
+		_playerController.Player = this;
+		_animator = GetComponent<Animator>();
+		_mybody = GetComponent<Rigidbody2D>();
 		_collider2D = GetComponent<Collider2D>();
+		Gun = Instantiate(Gun, transform);
 	}
-	
-	void FixedUpdate ()
+
+	private void FixedUpdate()
 	{
-		_playerController.Move(mybody);
-		Collider2D[] collider2Ds = new Collider2D[10];
-		ContactFilter2D contactFilter2D = new ContactFilter2D();
+		var collider2Ds = new Collider2D[10];
+		var contactFilter2D = new ContactFilter2D();
 		contactFilter2D.NoFilter();
-		int platformIntersections = Physics2D.OverlapCollider(_collider2D, contactFilter2D, collider2Ds);
+		var platformIntersections = Physics2D.OverlapCollider(_collider2D, contactFilter2D, collider2Ds);
 		if (platformIntersections == 0)
 		{
-			mybody.bodyType = RigidbodyType2D.Dynamic;
-			SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+			_mybody.bodyType = RigidbodyType2D.Dynamic;
+			var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 			spriteRenderer.sortingLayerName = "DeadPlayer";
 		}
-		if (mybody.position.y < -30)
+
+		if (_mybody.position.y < -30)
 		{
 			Destroy(gameObject, .5f);
 		}
 	}
 
+	public void Move(float x = 0, float y = 0)
+	{
+		var direction = new Vector3(x, y);
+		_mybody.transform.position = _mybody.transform.position + direction;
+	}
+
+	public void Shoot(Vector2 direction)
+	{
+		Gun.Shoot(direction);
+	}
 }

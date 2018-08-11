@@ -1,17 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public List<GameObject> players;
+	public List<GameObject> Players;
 	private Field _field;
 	public GameObject Grid;
-	void Start () {
-		for (int i = 0; i < players.Count; i++)
+
+	public void Start () {
+		foreach (var t in Players)
 		{
-			Instantiate(players[i]);
+			Instantiate(t);
 		}
 		Instantiate(Grid);
 		_field = GetComponent<Field>();
