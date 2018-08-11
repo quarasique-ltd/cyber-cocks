@@ -2,6 +2,6 @@
 
 public enum FieldTileType
 {
-    Unset,
+    unset,
     filled
 }
