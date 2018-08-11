@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,19 +11,19 @@ public class Bullet : MonoBehaviour
 	
 	public float Range = 9;
 	public float DetonationRadius = 1;
-	public Vector2 PushingForce = Vector2.zero;
-	public Vector2 FlyingForce = Vector2.zero;
+	public Vector3 PushingForce;
+	public Vector3 FlyingVelocity;
 
 	private void Start()
 	{
 		_rigidbody2D = GetComponent<Rigidbody2D>();
 		_circleCollider2D = GetComponent<CircleCollider2D>();
 		_startPosition = _rigidbody2D.transform.position;
+		_rigidbody2D.velocity = FlyingVelocity;
 	}
 	
 	private void FixedUpdate()
 	{
-		_rigidbody2D.velocity = FlyingForce;
 		if (Range <= Vector3.Distance(_startPosition, _rigidbody2D.transform.position))
 		{
 			Detonate();
@@ -32,15 +33,18 @@ public class Bullet : MonoBehaviour
 	private void Detonate()
 	{
 		_circleCollider2D.radius = DetonationRadius;
-		_rigidbody2D.velocity = Vector2.zero;
+		_rigidbody2D.velocity = Vector3.zero;
 		Destroy(gameObject, 1);
 	}
 
-	private void OnCollisionEnter(Collision other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag(PlayerTag)) 
+		if (!other.gameObject.CompareTag(PlayerTag))
 		{
-			other.gameObject.GetComponent<Rigidbody2D>().AddForce(PushingForce);
+			return;
 		}
+		var player = other.gameObject.GetComponent<Player>();
+		player.Stun(PushingForce);
+		Detonate();
 	}
 }
