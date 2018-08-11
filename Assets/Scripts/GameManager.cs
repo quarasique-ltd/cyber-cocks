@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	public List<GameObject> players;
 	private IField _field;
+	public GameObject GameObjectRenderer;
 	void Start () {
 		for (int i = 0; i < players.Count; i++)
 		{

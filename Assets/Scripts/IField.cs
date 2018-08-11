@@ -7,6 +7,6 @@ namespace DefaultNamespace
         void setTilemap(Tilemap tilemap);
         void GenerateMap();
         void RenderMap();
-        FieldTileType[,] getArray();    
+        FieldTileType[,] getArray();
     }
 }
