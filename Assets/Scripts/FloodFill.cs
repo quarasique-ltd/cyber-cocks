@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class FloodFill
 {
-    public static int[,] GetFloodFill(FieldTileType[,] map, Vector2Int start)
+    public static int[,] GetFloodFill(FieldTile[,] map, Vector2Int start)
     {
         Queue<Vector2Int> queue = new Queue<Vector2Int>();
         int[,] floodFillMap = new int[map.GetLength(0), map.GetLength(1)];
+        for (int i = 0; i < map.GetLength(0); i++)
+        {
+            for (int g = 0; g < map.GetLength(1); g++)
+            {
+                floodFillMap[i, g] = map.GetLength(0) * map.GetLength(1) + 10;
+            }
+        }
         queue.Enqueue(start);
+        Debug.Log(start);
         floodFillMap[start.x, start.y] = 0;
         while (queue.Count > 0)
         {
@@ -18,22 +26,22 @@ public class FloodFill
             {
                 continue;
             }
-            if (v.x < map.Length - 1 && map[v.x + 1, v.y] != FieldTileType.unset)
+            if (v.x < map.Length - 1 && map[v.x + 1, v.y] != null)
             {
                 floodFillMap[v.x + 1, v.y] = floodFillMap[v.x, v.y] + 1;
                 queue.Enqueue(new Vector2Int(v.x + 1, v.y));
             }
-            if (v.y < map.GetLength(1) - 1 && map[v.x, v.y + 1] != FieldTileType.unset)
+            if (v.y < map.GetLength(1) - 1 && map[v.x, v.y + 1] != null)
             {
                 floodFillMap[v.x, v.y + 1] = floodFillMap[v.x, v.y] + 1;
                 queue.Enqueue(new Vector2Int(v.x, v.y + 1));
             }
-            if (v.x - 1 > 0 && map[v.x - 1, v.y] != FieldTileType.unset)
+            if (v.x - 1 > 0 && map[v.x - 1, v.y] != null)
             {
                 floodFillMap[v.x - 1, v.y] = floodFillMap[v.x, v.y] + 1;
                 queue.Enqueue(new Vector2Int(v.x - 1, v.y));
             }
-            if (v.y - 1 > 0 && map[v.x + 1, v.y] != FieldTileType.unset)
+            if (v.y - 1 > 0 && map[v.x + 1, v.y] != null)
             {
                 floodFillMap[v.x, v.y - 1] = floodFillMap[v.x, v.y] + 1;
                 queue.Enqueue(new Vector2Int(v.x, v.y - 1));
@@ -42,13 +50,13 @@ public class FloodFill
         return floodFillMap;
     }
 
-    public static int PathLength(FieldTileType[,] map, Vector2Int from, Vector2Int to)
+    public static int PathLength(FieldTile[,] map, Vector2Int from, Vector2Int to)
     {
         int[,] FloodFill = GetFloodFill(map, to);
         return FloodFill[from.x, from.y];
     }
 
-    public static Vector2Int[] GetPath(FieldTileType[,] map, Vector2Int from, Vector2Int to, int pathLen)
+    public static Vector2Int[] GetPath(FieldTile[,] map, Vector2Int from, Vector2Int to, int pathLen)
     {
         int[,] FloodFill = GetFloodFill(map, to);
         int finalLen = Math.Min(pathLen, FloodFill[from.x, from.y]);
@@ -108,8 +116,8 @@ public class FloodFill
             }
             if (FloodFill[bufPoint.x, bufPoint.y] < lastValue)
             {
-                path[i] = bufPoint;
                 lastValue = FloodFill[bufPoint.x, bufPoint.y]; 
+                path[i] = bufPoint;
                 continue;
             }
             
