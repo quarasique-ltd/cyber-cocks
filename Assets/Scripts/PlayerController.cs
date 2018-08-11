@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour, IPlayerController
 	private const string Vertical = "Vertical";
 	
 	public Player Player;
-	public float Velocity = 1f;
 
 	public void Start()
 	{
@@ -28,7 +27,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
 	private void HandleArrows()
 	{
-		var direction = new Vector3(Input.GetAxis(Horizontal), Input.GetAxis(Vertical)) * Velocity;
+		var direction = new Vector3(Input.GetAxis(Horizontal), Input.GetAxis(Vertical));
 		Player.Move(direction.normalized);
 	}
 

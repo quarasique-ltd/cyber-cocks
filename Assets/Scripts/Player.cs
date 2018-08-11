@@ -1,8 +1,4 @@
 using System;
-using JetBrains.Annotations;
-using UnityEngine;
-using UnityEngine.Experimental.XR.Interaction;
-using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,16 +7,15 @@ public class Player : MonoBehaviour
 	private Animator _animator;
 	private Rigidbody2D _mybody;
 	private Collider2D _collider2D;
-//	private PlayerController _playerController;
 	
-	private float _lastStunTime;
+	private double _lastStunTime;
 	
 	private IPlayerController _playerController;
 
 	public Gun Gun;
 	public float StunTimeSeconds = 1;
+	public float Velocity = 5;
 	
-
 	private void Start()
 	{
 		_playerController = gameObject.GetComponent<IPlayerController>();
@@ -61,10 +56,6 @@ public class Player : MonoBehaviour
 		{
 			return;
 		}
-		if (_mybody == null)
-		{
-			return;
-		}
 		_mybody.transform.position = _mybody.transform.position + (Vector3) direction;
 	}
 
@@ -73,14 +64,15 @@ public class Player : MonoBehaviour
 		Gun.Shoot((direction - transform.position).normalized);
 	}
 
-	private static long GetTimeInSeconds()
+	private static double GetTimeInSeconds()
 	{
-		return DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond / 1000;
+		var timeSpan = DateTime.UtcNow - new DateTime(1970,1,1,0,0,0);
+		return timeSpan.TotalSeconds;
 	}
 
 	public void Stun(Vector3 direction)
 	{
 		_lastStunTime = GetTimeInSeconds();
-		Move(direction);
+		Move((direction + _mybody.transform.position).normalized);
 	}
 }
