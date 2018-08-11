@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: DeadPlayer
+    uniqueID: 3064123311
+    locked: 0
+  - name: Platform
+    uniqueID: 2777803305
+    locked: 0
+  - name: Player
+    uniqueID: 1132871599
+    locked: 0

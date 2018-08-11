@@ -10,21 +10,12 @@ public class Field : MonoBehaviour {
 	private Tilemap tilemap;
 	private Dictionary<FieldTileType, Sprite> spriteMap = new Dictionary<FieldTileType, Sprite>();
 
-//	private Tilemap tilemap = null;
 	void Start ()
 	{
-		Debug.Log(Tilemap);
 		tilemap = Tilemap.GetComponent<Tilemap>();
-		Debug.Log(tilemap);
 		spriteMap.Add(FieldTileType.filled, Resources.Load<Sprite>("Sprites/background"));
-		Debug.Log("SPRITEMAP: " + spriteMap[FieldTileType.filled] == null);
 		GenerateMap();
 		RenderMap();
-	}
-	
-	private void FixedUpdate()
-	{
-		
 	}
 
 	public void setTilemap(Tilemap tilemap)
@@ -46,7 +37,6 @@ public class Field : MonoBehaviour {
 
 	public void RenderMap()
 	{
-		Debug.Log("RenderMAP is norm");
 		tilemap.ClearAllTiles(); 
 		for (int x = 0; x <field.GetLength(0); x++) 
 		{

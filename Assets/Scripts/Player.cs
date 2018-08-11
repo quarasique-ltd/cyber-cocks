@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 	private Rigidbody2D mybody;
 	private Collider2D _collider2D;
 	private IPlayerController _playerController;
-	// Use this for initialization
 	void Start ()
 	{
 		_playerController = new PlayerController();
@@ -25,15 +24,12 @@ public class Player : MonoBehaviour
 		ContactFilter2D contactFilter2D = new ContactFilter2D();
 		contactFilter2D.NoFilter();
 		int platformIntersections = Physics2D.OverlapCollider(_collider2D, contactFilter2D, collider2Ds);
-		Debug.Log(platformIntersections);
 		if (platformIntersections == 0)
 		{
-			Debug.Log("you dead");
 			mybody.bodyType = RigidbodyType2D.Dynamic;
 			SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 			spriteRenderer.sortingLayerName = "DeadPlayer";
 		}
-		Debug.Log(mybody.position);
 		if (mybody.position.y < -30)
 		{
 			Destroy(gameObject, .5f);
