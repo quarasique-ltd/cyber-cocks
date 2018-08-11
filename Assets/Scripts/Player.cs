@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
 			SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 			spriteRenderer.sortingLayerName = "DeadPlayer";
 		}
+		Debug.Log(mybody.position);
+		if (mybody.position.y < -30)
+		{
+			Destroy(gameObject, .5f);
+		}
 	}
 
 }
