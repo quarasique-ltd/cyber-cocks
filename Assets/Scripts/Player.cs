@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		Physics2D.gravity = new Vector3(0f,0f,-9.81f);
 		_playerController = new PlayerController();
 		animator = GetComponent<Animator> ();
 		mybody = GetComponent<Rigidbody2D>();
