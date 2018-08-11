@@ -1,14 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerController : IPlayerController
+public class PlayerController : MonoBehaviour
 {
-
-	public float Velocity = 1f;
+	private const float Velocity = 1f;
+	private const string Horizontal = "Horizontal";
+	private const string Vertical = "Vertical";
 	
-	public void Move(Rigidbody2D mybody) {
-		Vector3 velocity = new Vector3(Input.GetAxis("Horizontal") * Velocity, Input.GetAxis("Vertical") * Velocity, 0);
-		mybody.transform.position = mybody.transform.position + velocity;
+	public Player Player;
+
+	public void Start()
+	{
+		Player = GetComponent<Player>();
+	}
+
+	public void FixedUpdate()
+	{
+		if (Input.GetButtonDown("Fire1"))
+		{
+			var direction = Input.mousePosition;
+			Player.Shoot(direction);
+		}
+		Player.Move(Input.GetAxis(Horizontal) * Velocity, Input.GetAxis(Vertical) * Velocity);
 	}
 }
