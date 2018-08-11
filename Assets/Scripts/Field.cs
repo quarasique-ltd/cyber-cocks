@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = System.Random;
 
 public class Field : MonoBehaviour {
 	private FieldTile[,] _field;
@@ -73,7 +76,22 @@ public class Field : MonoBehaviour {
 */
 	public FieldTile[,] getArray()
 	{
-		Debug.Log(_field[0,0]);
 		return _field;
+	}
+
+	public List<Tuple<int,int>> getSpawns(int count)
+	{
+		Random rnd = new Random();
+		HashSet<Tuple<int, int>> spawns = new HashSet<Tuple<int, int>>();
+		while (spawns.Count != count)
+		{
+			int x = rnd.Next(0, _field.GetLength(0));
+			int y = rnd.Next(0, _field.GetLength(1));
+			if (_field[x, y] != null)
+			{
+				spawns.Add(new Tuple<int, int>(x, y));
+			}
+		}
+		return spawns.ToList();
 	}
 }
