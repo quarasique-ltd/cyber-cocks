@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq.Expressions;
-using DefaultNamespace;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Field : MonoBehaviour {
-	FieldTileType[,] field;
 	private FieldTile[,] _field;
 	public GameObject Tilemap;
 	private Tilemap tilemap;
-	private Dictionary<FieldTileType, Sprite> spriteMap = new Dictionary<FieldTileType, Sprite>();
 
 	public int FieldTileHealth;
 	public List<int> FieldTileHealthPoints;
@@ -18,7 +15,6 @@ public class Field : MonoBehaviour {
 	void Start ()
 	{
 		tilemap = Tilemap.GetComponent<Tilemap>();
-		spriteMap.Add(FieldTileType.filled, Resources.Load<Sprite>("Sprites/background"));
 		GenerateMap();
 		RenderMap();
 	}
@@ -30,13 +26,11 @@ public class Field : MonoBehaviour {
 
 	public void GenerateMap()
 	{
-		field = new FieldTileType[30,20];
 		_field = new FieldTile[30,20];
-		for (int x = 0; x <field.GetLength(0); x++) 
+		for (int x = 0; x <_field.GetLength(0); x++) 
 		{
-			for (int y = 0; y < field.GetLength(1); y++)
+			for (int y = 0; y < _field.GetLength(1); y++)
 			{
-				field[x, y] = FieldTileType.filled;
 				_field[x,y] = new FieldTile(FieldTileHealth, ref FieldTileHealthPoints);
 			}
 		}
@@ -45,15 +39,23 @@ public class Field : MonoBehaviour {
 	public void RenderMap()
 	{
 		tilemap.ClearAllTiles(); 
-		for (int x = 0; x <field.GetLength(0); x++) 
+		for (int x = 0; x <_field.GetLength(0); x++) 
 		{
-			for (int y = 0; y < field.GetLength(1); y++)
+			for (int y = 0; y < _field.GetLength(1); y++)
 			{
-				if (field[x, y] != FieldTileType.unset)
+				if (_field[x, y] != null)
 				{
-					Tile tile = ScriptableObject.CreateInstance<Tile>();
-					tile.sprite = spriteMap[field[x, y]];
-					tilemap.SetTile(new Vector3Int(x, y, 0), tile); 
+					if (_field[x, y].getState() != FieldTileSprits.Count)
+					{
+						Tile tile = ScriptableObject.CreateInstance<Tile>();
+						tile.sprite = FieldTileSprits[_field[x, y].getState()];	
+						tilemap.SetTile(new Vector3Int(x, y, 0), tile);
+					}
+					else
+					{
+						tilemap.SetTile(new Vector3Int(x, y, 0), null);
+					}
+					 
 				}
 				else
 				{
@@ -63,9 +65,15 @@ public class Field : MonoBehaviour {
 			}
 		}
 	}
-
-	public FieldTileType[,] getArray()
+/*
+	private Dictionary<Tuple<int, int>, FieldTile> renderField()
 	{
-		return field;
+		return null;
+	}
+*/
+	public FieldTile[,] getArray()
+	{
+		Debug.Log(_field[0,0]);
+		return _field;
 	}
 }

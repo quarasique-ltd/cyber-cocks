@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
  
- public class FieldTile: MonoBehaviour
+ public class FieldTile
  {
      private int hp;
      private int fieldState = 0;
@@ -21,9 +21,9 @@ using UnityEngine;
 
      private void checkHealth()
      {
-         if (hp < fieldTileHealthPoints[fieldState])
+         if (fieldState < fieldTileHealthPoints.Count)
          {
-             if (fieldState < fieldTileHealthPoints.Count)
+             if (hp < fieldTileHealthPoints[fieldState])
              {
                  fieldState++;   
              }
