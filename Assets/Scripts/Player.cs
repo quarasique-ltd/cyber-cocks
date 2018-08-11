@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
 		if (platformIntersections == 0)
 		{
 			Debug.Log("you dead");
+			mybody.bodyType = RigidbodyType2D.Dynamic;
+			SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+			spriteRenderer.sortingLayerName = "DeadPlayer";
 		}
 	}
 
