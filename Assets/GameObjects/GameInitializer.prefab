@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1707945561859428}
+  m_RootGameObject: {fileID: 1820326160557818}
   m_IsPrefabAsset: 1
---- !u!1 &1707945561859428
+--- !u!1 &1820326160557818
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4448616916811306}
-  - component: {fileID: 114444616466675956}
-  - component: {fileID: 114028413504062792}
+  - component: {fileID: 4619156603337290}
+  - component: {fileID: 114934705855601106}
+  - component: {fileID: 114865051415726516}
   m_Layer: 0
-  m_Name: GameInitializer
+  m_Name: GameInitializer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4448616916811306
+--- !u!4 &4619156603337290
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1707945561859428}
+  m_GameObject: {fileID: 1820326160557818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.161065, y: 6.574902, z: -0.18849796}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,12 +41,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114028413504062792
+--- !u!114 &114865051415726516
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1707945561859428}
+  m_GameObject: {fileID: 1820326160557818}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26b7c7874cef17241ad80bb51a80c0fd, type: 3}
@@ -54,17 +54,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tilemap: {fileID: 1853775545449840, guid: 471eb266f68f5db418cfaf611aa495a8, type: 2}
   FieldTileHealth: 2000
-  FieldTileHealthPoints: dc050000f4010000
+  FieldTileHealthPoints: dc050000e8030000f4010000c800000064000000
   FieldTileSpritsPaths: []
   FieldTileSprits:
-  - {fileID: 21300000, guid: 651f6a609607a8c45b60b5a165e95840, type: 3}
-  - {fileID: 21300000, guid: 651f6a609607a8c45b60b5a165e95840, type: 3}
---- !u!114 &114444616466675956
+  - {fileID: 21300000, guid: cc06dede3abb066459d0871377ced4d8, type: 3}
+  - {fileID: 21300000, guid: 9ef4de10044dbbe4eb6ca54f6d5d9582, type: 3}
+  - {fileID: 21300000, guid: 33fde9a55f52d604bb10158bda78a33d, type: 3}
+  - {fileID: 21300000, guid: cdabf62f15f1e8d4fbf24c6c705fd5ec, type: 3}
+  - {fileID: 21300000, guid: 6d4ce10680162e641b844b2535e1b110, type: 3}
+--- !u!114 &114934705855601106
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1707945561859428}
+  m_GameObject: {fileID: 1820326160557818}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f9e6582b105af04eaca7b1285d25290, type: 3}
@@ -72,5 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - {fileID: 1903594134480586, guid: 9e06af739a317ba42aa4f5f5d47d1798, type: 2}
+  - {fileID: 1363682169086090, guid: 6b04bacfa49bdd941bdaaee86f70d748, type: 2}
+  - {fileID: 1363682169086090, guid: 6b04bacfa49bdd941bdaaee86f70d748, type: 2}
   _field: {fileID: 0}
   Grid: {fileID: 1757794540981234, guid: 471eb266f68f5db418cfaf611aa495a8, type: 2}
