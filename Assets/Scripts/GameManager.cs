@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	public List<GameObject> Players;
-	private Field _field;
+	public Field _field;
 	public GameObject Grid;
 
 	public void Start () {

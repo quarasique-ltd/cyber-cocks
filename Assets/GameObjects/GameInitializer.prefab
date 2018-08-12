@@ -53,6 +53,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tilemap: {fileID: 1853775545449840, guid: 471eb266f68f5db418cfaf611aa495a8, type: 2}
+  FieldTileHealth: 2000
+  FieldTileHealthPoints: dc050000f4010000
+  FieldTileSpritsPaths: []
+  FieldTileSprits:
+  - {fileID: 21300000, guid: 651f6a609607a8c45b60b5a165e95840, type: 3}
+  - {fileID: 21300000, guid: 651f6a609607a8c45b60b5a165e95840, type: 3}
 --- !u!114 &114444616466675956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,4 +72,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - {fileID: 1903594134480586, guid: 9e06af739a317ba42aa4f5f5d47d1798, type: 2}
+  _field: {fileID: 0}
   Grid: {fileID: 1757794540981234, guid: 471eb266f68f5db418cfaf611aa495a8, type: 2}

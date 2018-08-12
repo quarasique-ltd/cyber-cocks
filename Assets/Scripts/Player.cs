@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Experimental.XR.Interaction;
+using TMPro;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -9,17 +11,19 @@ public class Player : MonoBehaviour
 	private Animator _animator;
 	private Rigidbody2D _mybody;
 	private Collider2D _collider2D;
-	private PlayerController _playerController;
+//	private PlayerController _playerController;
 	
 	private float _lastStunTime;
 	
+	private AIController _playerController;
+
 	public Gun Gun;
 	public float StunTimeSeconds = 1;
 	
 
 	private void Start()
 	{
-		_playerController = gameObject.AddComponent<PlayerController>();
+		_playerController = gameObject.AddComponent<AIController>();
 		_playerController.Player = this;
 		_animator = GetComponent<Animator>();
 		_mybody = GetComponent<Rigidbody2D>();

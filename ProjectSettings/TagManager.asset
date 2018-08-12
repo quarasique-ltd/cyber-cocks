@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GameInitializer
   layers:
   - Default
   - TransparentFX
@@ -49,7 +50,4 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1132871599
-    locked: 0
-  - name: Bullet
-    uniqueID: 3505797033
     locked: 0

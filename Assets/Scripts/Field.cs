@@ -10,6 +10,7 @@ public class Field : MonoBehaviour {
 
 	public int FieldTileHealth;
 	public List<int> FieldTileHealthPoints;
+	public List<String> FieldTileSpritsPaths;
 	public List<Sprite> FieldTileSprits;
 
 	void Start ()
@@ -73,7 +74,6 @@ public class Field : MonoBehaviour {
 */
 	public FieldTile[,] getArray()
 	{
-		Debug.Log(_field[0,0]);
 		return _field;
 	}
 }
