@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -14,9 +15,13 @@ public class Bullet : MonoBehaviour
 	public float DetonationRadius = 1;
 	public Vector3 PushingForce;
 	public Vector3 FlyingVelocity;
+	private GameManager gameManager;
+	public int Damage;
 
 	private void Start()
 	{
+		GameObject gameInitializer = GameObject.Find("GameInitializer");
+		gameManager = gameInitializer.GetComponent<GameManager>();
 		_animator = GetComponent<Animator>();
 		_rigidbody2D = GetComponent<Rigidbody2D>();
 		_circleCollider2D = GetComponent<CircleCollider2D>();
@@ -45,6 +50,14 @@ public class Bullet : MonoBehaviour
 		if (_animator == null)
 		{
 			return;
+		}
+		FieldTile[,] map = gameManager._field.getArray();
+		if (transform.position.x > 0 && transform.position.x < map.GetLength(0) && transform.position.y > 0 &&
+		    transform.position.y < map.GetLength(1))
+		{
+			if(map[(int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y)] != null) {
+				map[(int) Math.Round(transform.position.x), (int) Math.Round(transform.position.y)].takeDamage(Damage);
+			}
 		}
 		_animator.SetTrigger("Destroy");	
 		_circleCollider2D.radius = DetonationRadius;
