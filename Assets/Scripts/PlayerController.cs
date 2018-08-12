@@ -21,8 +21,10 @@ public class PlayerController : MonoBehaviour, IPlayerController
 		}
 		var mousePos = Input.mousePosition;
 		mousePos.z = 0;
-		var pointToRay = Camera.main.ScreenPointToRay(mousePos);	
-		Player.Shoot(pointToRay.origin);
+		var pointToRay = Camera.main.ScreenPointToRay(mousePos);
+		Vector3 pointShoot = pointToRay.origin;
+		pointShoot.z = 0;
+		Player.Shoot(pointShoot);
 	}
 
 	private void HandleArrows()

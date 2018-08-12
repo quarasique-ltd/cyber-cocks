@@ -22,8 +22,14 @@ public class Bullet : MonoBehaviour
 		_circleCollider2D = GetComponent<CircleCollider2D>();
 		_startPosition = _rigidbody2D.transform.position;
 		_rigidbody2D.velocity = FlyingVelocity;
-		var yRotation = Vector3.Angle(FlyingVelocity, Vector3.right);
-		gameObject.transform.eulerAngles = new Vector3(0, 0, yRotation);
+//		var yRotation = Vector3.SignedAngle(FlyingVelocity, new Vector3(1, 0, 0), new Vector3(1, 0, 0));
+		float zRotation = Vector3.Angle(FlyingVelocity, new Vector3(1, 0, 0));
+		Vector3 cross = Vector3.Cross(FlyingVelocity, new Vector3(1, 0, 0));
+		if (cross.z > 0)
+		{
+			zRotation = -zRotation;
+		}
+		gameObject.transform.eulerAngles = new Vector3(0, 0, zRotation);
 	}
 	
 	private void FixedUpdate()
@@ -36,7 +42,7 @@ public class Bullet : MonoBehaviour
 
 	private void Detonate()
 	{
-		_animator.SetTrigger("Destroy");
+		_animator.SetTrigger("Destroy");	
 		_circleCollider2D.radius = DetonationRadius;
 		_rigidbody2D.velocity = Vector3.zero;
 		Destroy(gameObject, .5f);
