@@ -51,5 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faea5327bb6a4cd09f0aff520e538e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 114263957972925002, guid: 529cc411fa99a1345bdbea4f0a0bebce, type: 2}
+  Bullet: {fileID: 114313336725380468, guid: 529cc411fa99a1345bdbea4f0a0bebce, type: 2}
   Power: 5
