@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityScript.Steps;
 
-public class AIController : MonoBehaviour
+public class AIController : MonoBehaviour, IPlayerController
 {
     public const float Velocity = 0.05f;
     public Player Player;
@@ -35,7 +31,7 @@ public class AIController : MonoBehaviour
 
     Vector2Int ChooseWayPoint(FieldTile[,] map, Vector2Int from)
     {
-        GameObject []anotherPlayers = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] anotherPlayers = GameObject.FindGameObjectsWithTag("Player");
         float[,] cellsGoodness = new float[map.GetLength(0), map.GetLength(1)];
         float sum = 0;
         for (int i = 1; i < map.GetLength(0) - 1; i++)
@@ -43,20 +39,20 @@ public class AIController : MonoBehaviour
             for (int g = 1; g < map.GetLength(1) - 1; g++)
             {
                 cellsGoodness[i, g] = cellGoodNess(map[i, g]);
-                cellsGoodness[i, g] += cellGoodNess(map[i-1, g-1]);
-                cellsGoodness[i, g] += cellGoodNess(map[i-1, g]);
-                cellsGoodness[i, g] += cellGoodNess(map[i-1, g+1]);
-                cellsGoodness[i, g] += cellGoodNess(map[i, g-1]);
-                cellsGoodness[i, g] += cellGoodNess(map[i, g+1]);
-                cellsGoodness[i, g] += cellGoodNess(map[i+1, g-1]);
-                cellsGoodness[i, g] += cellGoodNess(map[i+1, g]);
-                cellsGoodness[i, g] += cellGoodNess(map[i+1, g+1]);
-                
-                if (Math.Abs(from.x - i)  > 0.01f && Math.Abs(from.y - g) > 0.01f)
+                cellsGoodness[i, g] += cellGoodNess(map[i - 1, g - 1]);
+                cellsGoodness[i, g] += cellGoodNess(map[i - 1, g]);
+                cellsGoodness[i, g] += cellGoodNess(map[i - 1, g + 1]);
+                cellsGoodness[i, g] += cellGoodNess(map[i, g - 1]);
+                cellsGoodness[i, g] += cellGoodNess(map[i, g + 1]);
+                cellsGoodness[i, g] += cellGoodNess(map[i + 1, g - 1]);
+                cellsGoodness[i, g] += cellGoodNess(map[i + 1, g]);
+                cellsGoodness[i, g] += cellGoodNess(map[i + 1, g + 1]);
+
+                if (Math.Abs(from.x - i) > 0.01f && Math.Abs(from.y - g) > 0.01f)
                 {
                     cellsGoodness[i, g] /= Vector2.Distance(from, new Vector2(i, g));
                 }
-                
+
                 sum += cellsGoodness[i, g];
             }
         }
@@ -69,7 +65,7 @@ public class AIController : MonoBehaviour
                 probabilities.Add(cellsGoodness[i, g]);
             }
         }
-        
+
         int result = RandomFromDistribution.RandomChoiceFollowingDistribution(probabilities);
         return new Vector2Int(result % cellsGoodness.GetLength(0), result / cellsGoodness.GetLength(0));
     }
@@ -78,7 +74,9 @@ public class AIController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3Int bufPos;
-        if ((currentWaypoint.x != 0 && currentWaypoint.y != 0) && (Math.Abs(currentWaypoint.x - transform.position.x) > 1.1 || Math.Abs(currentWaypoint.y - transform.position.y) > 1.1))
+        if ((currentWaypoint.x != 0 && currentWaypoint.y != 0) &&
+            (Math.Abs(currentWaypoint.x - transform.position.x) > 1.1 ||
+             Math.Abs(currentWaypoint.y - transform.position.y) > 1.1))
         {
             bufPos = gridLayout.WorldToCell(new Vector3(transform.position.x, transform.position.y, 0));
             Vector2 direction = gridLayout.CellToWorld(new Vector3Int(currentWaypoint.x, currentWaypoint.y, 0));
@@ -115,5 +113,10 @@ public class AIController : MonoBehaviour
             direction = direction.normalized;
             Player.Move(direction * Velocity);
         }
+    }
+
+    public void setPlayer(Player player)
+    {
+        this.Player = player;
     }
 }

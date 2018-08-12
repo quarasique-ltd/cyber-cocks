@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.WSA.WebCam;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPlayerController
 {
 	private const string Horizontal = "Horizontal";
 	private const string Vertical = "Vertical";
@@ -36,5 +36,10 @@ public class PlayerController : MonoBehaviour
 	{
 		HandleMouse();
 		HandleArrows();
+	}
+
+	public void setPlayer(Player player)
+	{
+		this.Player = player;
 	}
 }

@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 	
 	private float _lastStunTime;
 	
-	private AIController _playerController;
+	private IPlayerController _playerController;
 
 	public Gun Gun;
 	public float StunTimeSeconds = 1;
@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-		_playerController = gameObject.AddComponent<AIController>();
-		_playerController.Player = this;
+		_playerController = gameObject.GetComponent<IPlayerController>();
+		_playerController.setPlayer(this);
 		_animator = GetComponent<Animator>();
 		_mybody = GetComponent<Rigidbody2D>();
 		_collider2D = GetComponent<Collider2D>();
@@ -58,6 +58,10 @@ public class Player : MonoBehaviour
 	public void Move(Vector2 direction)
 	{
 		if (IsStunned())
+		{
+			return;
+		}
+		if (_mybody == null)
 		{
 			return;
 		}
