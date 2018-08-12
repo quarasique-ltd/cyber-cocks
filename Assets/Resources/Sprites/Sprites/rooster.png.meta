@@ -1,27 +1,22 @@
 fileFormatVersion: 2
-guid: 0818abc50f603834dba17badde374831
+guid: 3f1a4ff56c994ad41ab6d94ba0231094
 TextureImporter:
   fileIDToRecycleName:
-    21300000: monkey_0
-    21300002: monkey_1
-    21300004: monkey_2
-    21300006: monkey_3
-    21300008: monkey_4
-    21300010: monkey_5
-    21300012: monkey_6
-    21300014: monkey_7
-    21300016: monkey_8
-    21300018: monkey_9
-    21300020: monkey_10
-    21300022: monkey_11
-    21300024: monkey_12
-    21300026: monkey_13
-    21300028: monkey_14
-    21300030: monkey_15
-    21300032: monkey_16
-    21300034: monkey_17
-    21300036: monkey_18
-    21300038: monkey_19
+    21300000: rooster_0
+    21300002: rooster_1
+    21300004: rooster_2
+    21300006: rooster_3
+    21300008: rooster_4
+    21300010: rooster_5
+    21300012: rooster_6
+    21300014: rooster_7
+    21300016: rooster_8
+    21300018: rooster_9
+    21300020: rooster_10
+    21300022: rooster_11
+    21300024: rooster_12
+    21300026: rooster_13
+    21300028: rooster_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -100,17 +95,28 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monkey_0
+      name: rooster_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c088887bfce831c4f97794debbbac88a
+      spriteID: 2d9e9e48253857b409a73c03d96614a6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_1
+      name: rooster_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 45
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,19 +144,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7498ded241382f64fb7788e3660aed15
+      spriteID: 14ebd6302794c4e419f2cbeff27a2e2d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_2
+      name: rooster_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 90
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6139b9ca5c4d9ff4f8f087a6f998e75c
+      spriteID: d21473f17bf26464f843ae54102313b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_3
+      name: rooster_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 135
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,19 +184,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5f84df367c8a4646b8047c5506fdeea
+      spriteID: 5ebc185e3220e6c4b8c200c4deb6f110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_4
+      name: rooster_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 180
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,19 +204,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aee701e28d1de52458a839f5cc8e4169
+      spriteID: 018cb854de1be0c4c88f183636919e25
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_5
+      name: rooster_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 225
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,19 +224,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecd4e839ef719f54aba6229c1841f011
+      spriteID: 954df278cc9a8d84298c2bf1e9994a11
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_6
+      name: rooster_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 270
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,19 +244,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 947e306f98e55a84fb143a54c35630c9
+      spriteID: 647e8dfff3fb57a4b8c55f6079009d3f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_7
+      name: rooster_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 315
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,19 +264,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 696c625ace010c043acfd08f9c39a971
+      spriteID: 5d0abef58d54d284e92e5c7c7386886a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_8
+      name: rooster_8
       rect:
         serializedVersion: 2
-        x: 256
+        x: 360
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,19 +284,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fa48ae1c1efa1f4eaf9ceff38ee9ecb
+      spriteID: 91093e818d9b4d542808df2ebe98e4ce
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_9
+      name: rooster_9
       rect:
         serializedVersion: 2
-        x: 288
+        x: 405
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,19 +304,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8fefe8ddd86cfb4584987a8df0b1cda
+      spriteID: 1838d83a54102e6438e296f1adf9eceb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_10
+      name: rooster_10
       rect:
         serializedVersion: 2
-        x: 320
+        x: 450
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,19 +324,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca2e9fd4d1a4d704b8549c2f84813236
+      spriteID: 9f6c6deb357cec2429ad4f373c2cadff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_11
+      name: rooster_11
       rect:
         serializedVersion: 2
-        x: 352
+        x: 495
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,19 +344,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e96ce902834afc4eb2e83270e917716
+      spriteID: 380e81c825006254abb65817c0c1f08a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_12
+      name: rooster_12
       rect:
         serializedVersion: 2
-        x: 384
+        x: 540
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,19 +364,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a7b331e99120b3438f560a2050a1cdf
+      spriteID: d03fafe98c12d9e40bb1c10d012b018f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_13
+      name: rooster_13
       rect:
         serializedVersion: 2
-        x: 416
+        x: 585
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,19 +384,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96d4c1547af79894a8e4b813b62531b3
+      spriteID: 9896898b0f8eed44180af2577abd1029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monkey_14
+      name: rooster_14
       rect:
         serializedVersion: 2
-        x: 448
+        x: 630
         y: 0
-        width: 32
-        height: 32
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,107 +404,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89fbce1b5a5164c4cb1b3cc7c1433246
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monkey_15
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7e9a0cb8a51bfc449e644d8d806f570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monkey_16
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 292f1bae9daae5e43828c3d1af55523e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monkey_17
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60cfb81d7b2b71c498a439e906f71acc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monkey_18
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 946e967ad2ca4564da73ce785f945a79
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monkey_19
-      rect:
-        serializedVersion: 2
-        x: 608
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07843a3078fa8614eb8d2aa3e3b51f07
+      spriteID: 769f3f7f5843460489a49a4404ff6032
       vertices: []
       indices: 
       edges: []
@@ -506,7 +412,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 50457b3928db95c47a6cc240d0143ccf
+    spriteID: 64adbf744945419408ca119cbfba0124
     vertices: []
     indices: 
     edges: []

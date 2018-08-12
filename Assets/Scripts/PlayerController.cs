@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.XR.WSA.WebCam;
 
 public class PlayerController : MonoBehaviour, IPlayerController
 {
@@ -7,6 +6,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 	private const string Vertical = "Vertical";
 	
 	public Player Player;
+	public float Velocity = 0.000000001f;
 
 	public void Start()
 	{
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 	private void HandleArrows()
 	{
 		var direction = new Vector3(Input.GetAxis(Horizontal), Input.GetAxis(Vertical));
-		Player.Move(direction.normalized);
+		Player.Move(direction);
 	}
 
 	public void FixedUpdate()

@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
- 
- public class FieldTile
+
+public class FieldTile
  {
      private int hp;
-     private int fieldState = 0;
+     private int fieldState;
      private List<int> fieldTileHealthPoints;
      private bool forRedraw = true;
 
