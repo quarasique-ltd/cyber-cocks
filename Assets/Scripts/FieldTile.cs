@@ -6,6 +6,7 @@ using UnityEngine;
      private int hp;
      private int fieldState = 0;
      private List<int> fieldTileHealthPoints;
+     private bool forRedraw = true;
 
      public FieldTile(int fieldTileHealth, ref List<int> fieldTileHealthPoints)
      {
@@ -25,7 +26,8 @@ using UnityEngine;
          {
              if (hp < fieldTileHealthPoints[fieldState])
              {
-                 fieldState++;   
+                 fieldState++;
+                 forRedraw = true;
              }
          }
      }
@@ -33,5 +35,15 @@ using UnityEngine;
      public int getState()
      {
          return fieldState;
+     }
+
+     public bool isForRedraw()
+     {
+         return forRedraw;
+     }
+
+     public void wasRedrawed()
+     {
+         forRedraw = false;
      }
  }
