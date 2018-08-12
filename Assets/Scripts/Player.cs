@@ -38,11 +38,7 @@ public class Player : MonoBehaviour
 		{
 			_rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
 			_spriteRenderer.sortingLayerName = "DeadPlayer";
-		}
-
-		if (_rigidbody2D.position.y < -30)
-		{
-			Destroy(gameObject, .5f);
+			Destroy(gameObject, 2f);
 		}
 	}
 
@@ -75,6 +71,7 @@ public class Player : MonoBehaviour
 		}
 
 		_rigidbody2D.velocity = Vector3.zero;
+		_rigidbody2D.angularVelocity = 0; 
 		ApplyMovementAnimation();
 		FlipCharacter(direction);
 		_rigidbody2D.transform.position += (Vector3) direction * Velocity;
@@ -111,6 +108,6 @@ public class Player : MonoBehaviour
 	public void Stun(Vector3 direction)
 	{
 		_lastStunTime = GetTimeInSeconds();
-		Move((direction + _rigidbody2D.transform.position).normalized);
+		_rigidbody2D.velocity = direction.normalized * 4;
 	}
 }
