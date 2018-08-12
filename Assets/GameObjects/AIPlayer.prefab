@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 95524564449992876}
   m_Layer: 8
   m_Name: AIPlayer
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
