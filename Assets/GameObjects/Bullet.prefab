@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1650187365118182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0844758, y: 2.806056, z: 0.12934314}
+  m_LocalPosition: {x: 4.052534, y: 2.4313052, z: 0.12934314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 9
   DetonationRadius: 1
-  PushingForce: {x: -4.7856674, y: -1.4482353, z: 0}
-  FlyingVelocity: {x: -4.7856674, y: -1.4482353, z: 0}
+  PushingForce: {x: 4.7068653, y: 1.6868365, z: 0}
+  FlyingVelocity: {x: 4.7068653, y: 1.6868365, z: 0}
 --- !u!212 &212263246263150796
 SpriteRenderer:
   m_ObjectHideFlags: 1

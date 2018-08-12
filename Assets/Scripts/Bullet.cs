@@ -42,6 +42,10 @@ public class Bullet : MonoBehaviour
 
 	private void Detonate()
 	{
+		if (_animator == null)
+		{
+			return;
+		}
 		_animator.SetTrigger("Destroy");	
 		_circleCollider2D.radius = DetonationRadius;
 		_rigidbody2D.velocity = Vector3.zero;
