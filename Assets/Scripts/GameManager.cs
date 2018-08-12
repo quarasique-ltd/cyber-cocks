@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 	public Field _field;
 	public GameObject Grid;
 
+	public Texture2D cursor;
+
 	public void Start () {
 		foreach (var t in Players)
 		{
@@ -14,5 +16,6 @@ public class GameManager : MonoBehaviour
 		}
 		Instantiate(Grid);
 		_field = GetComponent<Field>();
+		
 	}
 }
