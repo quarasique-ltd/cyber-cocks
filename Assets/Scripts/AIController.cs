@@ -82,7 +82,7 @@ public class AIController : MonoBehaviour, IPlayerController
             Vector2 direction = gridLayout.CellToWorld(new Vector3Int(currentWaypoint.x, currentWaypoint.y, 0));
             direction = direction - new Vector2(bufPos.x, bufPos.y);
             direction = direction.normalized;
-            Player.Move(direction * Velocity);
+            Player.Move(direction);
             return;
         }
         bufPos = gridLayout.WorldToCell(new Vector3(transform.position.x, transform.position.y, 0));
