@@ -73,6 +73,44 @@ public class AIController : MonoBehaviour, IPlayerController
     // Update is called once per frame
     void FixedUpdate()
     {
+        float shootRandomDirection = RandomFromDistribution.RandomNormalDistribution(0, 0.5f);
+
+        Player[] players = GameObject.FindObjectsOfType<Player>();
+        List<Player> playersWithoutMe = new List<Player>();
+        Player me = null;
+        int currentId = gameObject.GetInstanceID();
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].gameObject.GetInstanceID() != currentId)
+            {
+                playersWithoutMe.Add(players[i]);
+            }
+            else
+            {
+                me = players[i];
+            }
+        }
+        Player nearestPlayer = null;
+        float nearestPlayerDist = 10000;
+        if (me != null)
+        {
+            for (int i = 0; i < playersWithoutMe.Count; i++)
+            {
+                float dist = Vector3.Distance(playersWithoutMe[i].gameObject.transform.position,
+                    me.gameObject.transform.position);
+                if (dist < nearestPlayerDist)
+                {
+                    nearestPlayerDist = dist;
+                    nearestPlayer = playersWithoutMe[i];
+                }
+            }
+        }
+        if (nearestPlayer != null)
+        {
+            Player.Shoot(new Vector3(nearestPlayer.transform.position.x + shootRandomDirection,
+                nearestPlayer.transform.position.y + shootRandomDirection, 0));
+        }
+
         Vector3Int bufPos;
         if ((currentWaypoint.x != 0 && currentWaypoint.y != 0) &&
             (Math.Abs(currentWaypoint.x - transform.position.x) > 1.1 ||

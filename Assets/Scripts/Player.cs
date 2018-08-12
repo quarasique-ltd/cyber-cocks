@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 	public Gun Gun;
 	public float StunTimeSeconds = 1;
 	public float Velocity = 0.1f;
+	private double _lastShootTime = 0f;
 	
 	private void Start()
 	{
@@ -90,10 +91,15 @@ public class Player : MonoBehaviour
 
 	public void Shoot(Vector3 point)
 	{
+		if (GetTimeInSeconds() - _lastShootTime < 1)
+		{
+			return;
+		}
 		var direction = (point - transform.position).normalized;
 		ApplyAttackAnimation();
 		FlipCharacter(direction);
 		Gun.Shoot(direction);
+		_lastShootTime = GetTimeInSeconds();
 	}
 
 	private static double GetTimeInSeconds()
