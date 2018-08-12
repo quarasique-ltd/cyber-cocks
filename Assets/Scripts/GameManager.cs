@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 {
 	public List<GameObject> Players;
 	public Field _field;
-	public GameObject Grid;
 
 	public Texture2D cursor;
 
@@ -14,7 +13,6 @@ public class GameManager : MonoBehaviour
 		{
 			Instantiate(t);
 		}
-		Instantiate(Grid);
 		_field = GetComponent<Field>();
 		
 	}

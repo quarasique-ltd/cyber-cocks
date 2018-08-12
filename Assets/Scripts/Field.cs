@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Tilemaps;
 using Random = System.Random;
 
 public class Field : MonoBehaviour {
 	private FieldTile[,] _field;
-	public GameObject Tilemap;
+//	public GameObject Tilemap;
+	public GameObject Grid;
 	private Tilemap tilemap;
 
 	public int FieldTileHealth;
@@ -16,7 +18,10 @@ public class Field : MonoBehaviour {
 
 	void Start ()
 	{
-		tilemap = Tilemap.GetComponent<Tilemap>();
+		Instantiate(Grid);
+//		Instantiate(Tilemap);
+		
+		tilemap = Grid.GetComponentInChildren<Tilemap>();
 		GenerateMap();
 		tilemap.ClearAllTiles(); 
 		RenderMap();
@@ -49,11 +54,19 @@ public class Field : MonoBehaviour {
 		Dictionary<Vector2Int, Sprite> list = generateRedrawList();
 		foreach (var item in list)
 		{
-			tilemap.SetTile(new Vector3Int(item.Key.x, item.Key.y, 0), null);
+//			tilemap.SetTile(new Vector3Int(item.Key.x, item.Key.y, 0), null);
 			Tile tile = ScriptableObject.CreateInstance<Tile>();
 			tile.sprite = item.Value;
-			Debug.Log("SetNewSprite");
-			tilemap.SetTile(new Vector3Int(item.Key.x, item.Key.y, 0), tile);
+			if (item.Value != null)
+			{
+				tilemap.SetTile(new Vector3Int(item.Key.x, item.Key.y, 0), tile);
+			}
+			else
+			{
+				Debug.Log("NULLLL");
+				Debug.Log(item.Key.x + " " + item.Key.y);
+				tilemap.SetTile(new Vector3Int(item.Key.x, item.Key.y, 0), null);
+			}
 		}
 	}
 
@@ -71,12 +84,10 @@ public class Field : MonoBehaviour {
 					
 					if (_field[x, y].getHealth() > 0)
 					{
-						newSprite = FieldTileSprits[_field[x, y].getState()];	
-						Debug.Log(_field[x, y].getState());
+						newSprite = FieldTileSprits[_field[x, y].getState()];
 					}
 					else
 					{
-						Debug.Log("To remove");
 						_field[x, y] = null;
 					}
 					

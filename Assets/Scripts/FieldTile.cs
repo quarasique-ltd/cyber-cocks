@@ -28,7 +28,6 @@ public class FieldTile
              {
                  fieldState++;
                  forRedraw = true;
-                 Debug.Log("FOR REDRAW");
              }
          }
      }

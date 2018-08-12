@@ -41,7 +41,6 @@ public class FieldTileDestroyer : MonoBehaviour
 
     private void toHurt()
     {
-        Debug.Log("TOOOO HURRRRRRRT");
         foreach (var target in targets)
         {
             if (field.getArray()[target.Key.x, target.Key.y] != null)

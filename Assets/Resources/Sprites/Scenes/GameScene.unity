@@ -179,6 +179,23 @@ Prefab:
       propertyPath: FieldTileHealthPoints.Array.data[4]
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114865051415726516, guid: 470ab33aebb3ce641937e46859e22ce6,
+        type: 2}
+      propertyPath: Tilemap
+      value: 
+      objectReference: {fileID: 1757794540981234, guid: 471eb266f68f5db418cfaf611aa495a8,
+        type: 2}
+    - target: {fileID: 114865051415726516, guid: 470ab33aebb3ce641937e46859e22ce6,
+        type: 2}
+      propertyPath: Grid
+      value: 
+      objectReference: {fileID: 1757794540981234, guid: 471eb266f68f5db418cfaf611aa495a8,
+        type: 2}
+    - target: {fileID: 114865051415726516, guid: 470ab33aebb3ce641937e46859e22ce6,
+        type: 2}
+      propertyPath: FieldTileHealth
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470ab33aebb3ce641937e46859e22ce6, type: 2}
   m_IsPrefabAsset: 0
