@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class FieldTile
  {
@@ -27,10 +28,16 @@ public class FieldTile
              {
                  fieldState++;
                  forRedraw = true;
+                 Debug.Log("FOR REDRAW");
              }
          }
      }
 
+     public int getHealth()
+     {
+         return hp;
+     }
+     
      public int getState()
      {
          return fieldState;

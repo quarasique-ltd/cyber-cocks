@@ -12,7 +12,6 @@ public class Field : MonoBehaviour {
 
 	public int FieldTileHealth;
 	public List<int> FieldTileHealthPoints;
-	public List<String> FieldTileSpritsPaths;
 	public List<Sprite> FieldTileSprits;
 
 	void Start ()
@@ -36,9 +35,9 @@ public class Field : MonoBehaviour {
 	public void GenerateMap()
 	{
 		_field = new FieldTile[30,20];
-		for (int x = 0; x <_field.GetLength(0); x++) 
+		for (int x = 1; x <_field.GetLength(0) - 1; x++) 
 		{
-			for (int y = 0; y < _field.GetLength(1); y++)
+			for (int y = 1; y < _field.GetLength(1) - 1; y++)
 			{
 				_field[x,y] = new FieldTile(FieldTileHealth, ref FieldTileHealthPoints);
 			}
@@ -50,8 +49,10 @@ public class Field : MonoBehaviour {
 		Dictionary<Vector2Int, Sprite> list = generateRedrawList();
 		foreach (var item in list)
 		{
+			tilemap.SetTile(new Vector3Int(item.Key.x, item.Key.y, 0), null);
 			Tile tile = ScriptableObject.CreateInstance<Tile>();
 			tile.sprite = item.Value;
+			Debug.Log("SetNewSprite");
 			tilemap.SetTile(new Vector3Int(item.Key.x, item.Key.y, 0), tile);
 		}
 	}
@@ -68,12 +69,14 @@ public class Field : MonoBehaviour {
 					_field[x, y].wasRedrawed();
 					Sprite newSprite = null;
 					
-					if (_field[x, y].getState() != FieldTileSprits.Count)
+					if (_field[x, y].getHealth() > 0)
 					{
 						newSprite = FieldTileSprits[_field[x, y].getState()];	
+						Debug.Log(_field[x, y].getState());
 					}
 					else
 					{
+						Debug.Log("To remove");
 						_field[x, y] = null;
 					}
 					
@@ -84,6 +87,11 @@ public class Field : MonoBehaviour {
 		return list;
 	}
 
+	public void AttackTiel(int x, int y, int damage)
+	{
+		_field[x, y].takeDamage(damage);
+	}
+	
 	public FieldTile[,] getArray()
 	{
 		return _field;

@@ -127,7 +127,7 @@ public class AIController : MonoBehaviour, IPlayerController
         Vector2Int from = new Vector2Int(bufPos.x, bufPos.y);
         FieldTile[,] map = gameManager._field.getArray();
         currentWaypoint = ChooseWayPoint(map, from);
-        Debug.Log(currentWaypoint);
+        //Debug.Log(currentWaypoint);
         Vector2Int[] path = FloodFill.GetPath(map, from, currentWaypoint, 3);
         if (path != null)
         {

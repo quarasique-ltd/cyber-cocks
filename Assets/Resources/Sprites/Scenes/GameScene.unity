@@ -113,6 +113,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1852806419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1820326160557818, guid: 470ab33aebb3ce641937e46859e22ce6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1967779061}
+--- !u!114 &1852806423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852806419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e402e272e684486a93c43976e0f64be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePower: 50
 --- !u!1001 &1967779061
 Prefab:
   m_ObjectHideFlags: 0
@@ -120,6 +137,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114865051415726516, guid: 470ab33aebb3ce641937e46859e22ce6,
+        type: 2}
+      propertyPath: FieldTileHealthPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4619156603337290, guid: 470ab33aebb3ce641937e46859e22ce6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.161065
@@ -151,6 +173,11 @@ Prefab:
     - target: {fileID: 4619156603337290, guid: 470ab33aebb3ce641937e46859e22ce6, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114865051415726516, guid: 470ab33aebb3ce641937e46859e22ce6,
+        type: 2}
+      propertyPath: FieldTileHealthPoints.Array.data[4]
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470ab33aebb3ce641937e46859e22ce6, type: 2}
